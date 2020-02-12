@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorimeter</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Open+Sans+Condensed:300,300i,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/03de6fac72.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div id="wrapper-wrapper">
+      <div id="content-wrapper">
+        <!--
+      ****************
+          HEADER
+      ****************
+      -->
+        <header>
+          <h1>Calorigram</h1>
+          <!-- <h2>CALORIE TRACKER</h2> -->
+          <!-- <button>Clear All</button> -->
+        </header>
+        <main>
+          <!--
+      ****************
+       PREVIEW SECTION
+      ****************
+      -->
+          <aside>
+            <form action="">
+              <div class="field-wrapper">
+                <!-- Meal -->
+                <label for="meal">
+                  <i class="fas fa-pizza-slice"></i>
+                </label>
+                <input
+                  id="meal"
+                  type="text"
+                  placeholder="Enter meal"
+                  required
+                />
+              </div>
+              <!-- Calories -->
+              <div class="field-wrapper">
+                <label for="calories">
+                  <i class="fas fa-fire"></i>
+                </label>
+                <input
+                  id="calories"
+                  type="number"
+                  placeholder="Enter calories"
+                  required
+                />
+              </div>
+              <!-- Submit meal -->
+              <button id="add">Add Meal</button>
+            </form>
+
+            <div id="preview-cards">
+              <!-- <div class="preview-card">
+                <div class="preview-card-image"></div>
+                <div class="preview-card-meal">Golden corral green grapes</div>
+              </div> -->
+            </div>
+          </aside>
+          <!--
+      ****************
+        LIST SECTION
+      ****************
+      -->
+          <section>
+            <div id="list-wrapper">
+              <div id="list-headings">
+                <h3 id="list-heading-items">
+                  Food Items
+                </h3>
+                <h3 id="list-heading-calories">
+                  Total calories: 0
+                </h3>
+              </div>
+              <div id="list-items">
+                <!-- <div class="list-item">
+                  <div class="list-subitem">
+                    <p class="list-item-number">1.</p>
+                    <div class="list-item-image"></div>
+                    <p class="list-item-meal">Black grape</p>
+                  </div>
+                  <div class="list-subitem">
+                    <p class="list-item-calories">50</p>
+                    <i class="fas fa-minus-circle"></i>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer>
+          <p>Calorigram</p>
+        </footer>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

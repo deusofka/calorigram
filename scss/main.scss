@@ -1,0 +1,270 @@
+/****************
+   VARIABLES
+****************/
+// Colors
+$bg-color: #2e162e;
+$bg-sec-color: #ffffff26;
+$bg-ter-color: #ffffff;
+
+$fg-color: #fff;
+$fg-sec-color: #000;
+$fg-ter-color: #333;
+$label-border-color: #aaa;
+
+$section-color: #ffffff26;
+$transparent: #ffffff00;
+
+// Sizes
+$content-width: 1280px;
+$heading-l: 3.5rem;
+$heading-s: 1.4rem;
+$txt-l: 1.5rem;
+$txt-m: 1.25rem;
+
+// Border
+$border: 1px solid $bg-color;
+$label-border: 1px solid $label-border-color;
+$btn-border: 1px solid $fg-color;
+$previews-border: 0.66rem $transparent solid;
+$preview-border: 1px solid $bg-ter-color;
+// Image
+// $image: url("https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png");
+$image: url("../img/burger.png");
+
+/****************
+    EXTENDS
+****************/
+%font {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: $txt-m;
+}
+%center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%vertical-box {
+  display: flex;
+  flex-direction: column;
+}
+
+/****************
+    UTILITY
+****************/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+label {
+  display: inline-block;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  @extend %font;
+  border: $btn-border;
+  outline: none;
+  background-color: #2e162e;
+  color: $bg-ter-color;
+}
+
+i {
+  font-size: 1rem;
+}
+
+body {
+  @extend %font;
+  div#wrapper-wrapper {
+    background-color: $bg-color;
+    div#content-wrapper {
+      color: $fg-color;
+      max-width: $content-width;
+      width: 90%;
+      margin: auto;
+      header {
+        h1 {
+          font-family: "Amatic SC", cursive;
+          font-size: $heading-l;
+          text-align: center;
+          padding: 1rem 0;
+        }
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        aside {
+          width: 22.5rem;
+          form {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            div.field-wrapper {
+              &:first-of-type {
+                grid-column-start: 1;
+                grid-column-end: 3;
+              }
+              display: flex;
+              height: 2.25rem;
+              margin-bottom: 0.66rem;
+
+              label {
+                height: 100%;
+                padding: 0.1rem 0.625rem;
+                @extend %center-box;
+                background-color: $bg-ter-color;
+                border-right: $label-border;
+                i {
+                  position: relative;
+                  &.fa-pizza-slice {
+                    right: 2px;
+                  }
+                  &.fa-fire {
+                    left: 0.5px;
+                  }
+                  width: 1rem;
+                  height: auto;
+                  color: $fg-sec-color;
+                  // margin: 1rem;
+                }
+              }
+              input {
+                &#meal {
+                  width: 100%;
+                }
+                &::placeholder {
+                  color: $fg-ter-color;
+                }
+                @extend %font;
+                height: 100%;
+                border: none;
+                padding-left: 0.5rem;
+              }
+            }
+            button {
+              height: 2.25rem;
+              margin-left: 0.66rem;
+            }
+          }
+
+          div#preview-cards {
+            background-color: $bg-sec-color;
+            height: 35rem;
+            border: $previews-border;
+            overflow: scroll;
+            div.preview-card {
+              display: flex;
+              align-items: center;
+              background-color: $bg-ter-color;
+              height: 5rem;
+              color: $fg-sec-color;
+              margin-bottom: 0.66rem;
+              border: $preview-border;
+              &.selected {
+                border: $preview-border;
+                background-color: transparent;
+                color: $bg-ter-color;
+              }
+              &:last-of-type {
+                margin-bottom: 0;
+              }
+              div.preview-card-image {
+                margin: 0 0.66rem;
+                background: $image;
+                background-size: cover;
+                background-position: center;
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+              }
+
+              div.preview-card-meal {
+              }
+            }
+          }
+        }
+        section {
+          width: 100%;
+          background-color: $bg-sec-color;
+          margin-left: 1.33rem;
+          div#list-wrapper {
+            padding: 0.66rem;
+            div#list-headings {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 1rem;
+              margin-bottom: 0.25rem;
+              h3 {
+                font-size: $heading-s;
+                font-weight: 300;
+                font-style: italic;
+                &:nth-of-type(1) {
+                  margin-left: 0.25rem;
+                }
+                &:nth-of-type(2) {
+                  margin-right: 1rem;
+                }
+              }
+            }
+
+            div#list-items {
+              color: $fg-sec-color;
+              div.list-item {
+                background-color: $bg-ter-color;
+                margin-bottom: 1px;
+                display: flex;
+                justify-content: space-between;
+                height: 5rem;
+                div.list-subitem {
+                  display: flex;
+                  align-items: center;
+
+                  p.list-item-number {
+                    margin: 0 1rem;
+                  }
+                  div.list-item-image {
+                    background: $image;
+                    border-radius: 50%;
+                    background-size: cover;
+                    background-position: center;
+                    width: 4rem;
+                    height: 4rem;
+                    margin-right: 1rem;
+                  }
+                  p.list-item-meal {
+                  }
+                  p.list-item-calories {
+                  }
+                  i.fa-minus-circle {
+                    margin: 0 1rem;
+                  }
+
+                  // &:nth-of-type(1) {
+
+                  // }
+                  // &:nth-of-type(2) {
+
+                  // }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      footer {
+        p {
+          font-family: "Amatic SC", cursive;
+          font-size: $txt-l;
+          text-align: center;
+          padding: 1.5rem 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Calorigram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "npx node-sass --watch scss/ -o dist/css"
+  },
+  "keywords": [],
+  "author": "Vimal Patel",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
