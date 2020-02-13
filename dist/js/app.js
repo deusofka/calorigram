@@ -169,6 +169,10 @@ let UICtrl = (function() {
       hooks.previewCards.className = "preview-cards no-preview";
       hooks.previewCards.innerHTML = "";
     },
+    clearInputs: function() {
+      hooks.mealInput.value = "";
+      hooks.caloriesInput.value = "";
+    },
     paintList: function(state) {
       // Total calories
       hooks.listHeadingCalories.innerHTML = `Total calories: ${state.totalCalories}`;
@@ -320,6 +324,8 @@ let App = (function() {
     let res = StateCtrl.addItem(meal, calories, imageUrl);
     StorageCtrl.set(items);
     UICtrl.addItem(res.totalCalories, res.serial, imageUrl, meal, calories);
+    UICtrl.clearInputs();
+    UICtrl.clearPreview();
   });
 
   /****************
