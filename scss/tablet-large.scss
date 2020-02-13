@@ -81,6 +81,9 @@ body {
           &.no-preview {
           }
           div#list-wrapper {
+            &.zero-items {
+              padding-bottom: 0;
+            }
             div#list-headings {
               h3 {
                 &:nth-of-type(1) {

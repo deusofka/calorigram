@@ -34,3 +34,5 @@ body div#wrapper-wrapper {
         height: auto;
         margin-left: 0;
         margin-top: 0.66rem; }
+        body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper.zero-items {
+          padding-bottom: 0; }

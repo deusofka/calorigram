@@ -131,7 +131,9 @@ let UICtrl = (function() {
     mealInput: document.querySelector("#meal"),
     caloriesInput: document.querySelector("#calories"),
     add: document.querySelector("#add"),
-    previewCards: document.querySelector("#preview-cards")
+    previewCards: document.querySelector("#preview-cards"),
+    // For changing heading padding
+    listWrapper: document.querySelector("#list-wrapper")
   };
   // Use the hamburger as placeholder image
   replacePlaceholderImage = item => {
@@ -247,6 +249,14 @@ let UICtrl = (function() {
       hooks.previewCards.className = "preview-cards success";
       hooks.previewCards.innerHTML = msg;
     },
+    padListHeading: function(noOfItems) {
+      console.log("No. of items: " + noOfItems);
+      if (noOfItems === 0) {
+        hooks.listWrapper.className = "zero-items";
+      } else {
+        hooks.listWrapper.className = "";
+      }
+    },
     getHooks: function() {
       return hooks;
     }
@@ -261,6 +271,7 @@ let App = (function() {
   StateCtrl.initState(items);
   UICtrl.paintList(StateCtrl.getState());
   UICtrl.clearPreview();
+  UICtrl.padListHeading(items.length);
 
   /****************
       Meal input
@@ -352,6 +363,7 @@ let App = (function() {
     UICtrl.clearInputs();
     UICtrl.clearPreview();
     UICtrl.showSuccess("You have successfully inserted a meal :)");
+    UICtrl.padListHeading(items.length);
   });
 
   /****************
@@ -368,6 +380,7 @@ let App = (function() {
       );
       StorageCtrl.set(items);
       UICtrl.removeItem(item, totalCalories);
+      UICtrl.padListHeading(items.length);
     }
   });
 })();
