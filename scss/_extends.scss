@@ -1,0 +1,16 @@
+/****************
+    EXTENDS
+****************/
+%font {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: $txt-m;
+}
+%center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%vertical-box {
+  display: flex;
+  flex-direction: column;
+}

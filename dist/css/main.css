@@ -93,7 +93,19 @@ body div#wrapper-wrapper {
           background-color: #ffffff26;
           height: 35rem;
           border: 0.66rem #ffffff00 solid;
+          border-top: 0;
           overflow: scroll; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            font-style: italic;
+            padding: 0.25rem;
+            padding-right: 0; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview {
+            transition-property: height;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+            color: red; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards div.preview-card {
             display: flex;
             align-items: center;
@@ -117,16 +129,19 @@ body div#wrapper-wrapper {
               height: 4rem;
               border-radius: 50%; }
       body div#wrapper-wrapper div#content-wrapper main section {
+        height: 40.8rem;
+        overflow: scroll;
         width: 100%;
         background-color: #ffffff26;
         margin-left: 1.33rem; }
         body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper {
-          padding: 0.66rem; }
+          padding: 0.66rem;
+          padding-top: 0.25rem; }
           body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-headings {
             display: flex;
             justify-content: space-between;
-            margin-top: 1rem;
-            margin-bottom: 0.25rem; }
+            margin-bottom: 0.25rem;
+            margin-top: 0; }
             body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-headings h3 {
               font-size: 1.4rem;
               font-weight: 300;

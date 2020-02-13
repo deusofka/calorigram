@@ -125,6 +125,7 @@ let StateCtrl = (function() {
 let UICtrl = (function() {
   // Private members
   hooks = {
+    section: document.querySelector("section"),
     listHeadingCalories: document.querySelector("#list-heading-calories"),
     listItems: document.querySelector("#list-items"),
     mealInput: document.querySelector("#meal"),
@@ -152,8 +153,20 @@ let UICtrl = (function() {
         </div>`;
       });
       hooks.previewCards.innerHTML = itemsHTML;
+      if (itemsHTML === "") {
+        console.log("Empty Search: Applying Style");
+        hooks.previewCards.className = "preview-cards no-preview";
+        hooks.previewCards.innerHTML =
+          "Sorry, no matches found for the search string :(";
+        console.log(previewItems);
+      } else {
+        hooks.previewCards.className = "";
+        console.log("1+ Searches: Applying Style");
+        hooks.previewCards.innerHTML = "<p>Search results</p>" + itemsHTML;
+      }
     },
     clearPreview: function() {
+      hooks.previewCards.className = "preview-cards no-preview";
       hooks.previewCards.innerHTML = "";
     },
     paintList: function(state) {
@@ -230,6 +243,7 @@ let App = (function() {
   let items = StorageCtrl.get();
   StateCtrl.initState(items);
   UICtrl.paintList(StateCtrl.getState());
+  UICtrl.clearPreview();
 
   /****************
       Meal input

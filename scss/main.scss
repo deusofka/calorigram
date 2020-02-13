@@ -1,52 +1,5 @@
-/****************
-   VARIABLES
-****************/
-// Colors
-$bg-color: #2e162e;
-$bg-sec-color: #ffffff26;
-$bg-ter-color: #ffffff;
-
-$fg-color: #fff;
-$fg-sec-color: #000;
-$fg-ter-color: #333;
-$label-border-color: #aaa;
-
-$section-color: #ffffff26;
-$transparent: #ffffff00;
-
-// Sizes
-$content-width: 1280px;
-$heading-l: 3.5rem;
-$heading-s: 1.4rem;
-$txt-l: 1.5rem;
-$txt-m: 1.25rem;
-
-// Border
-$border: 1px solid $bg-color;
-$label-border: 1px solid $label-border-color;
-$btn-border: 1px solid $fg-color;
-$previews-border: 0.66rem $transparent solid;
-$preview-border: 1px solid $bg-ter-color;
-// Image
-// $image: url("https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png");
-$image: url("../img/burger.png");
-
-/****************
-    EXTENDS
-****************/
-%font {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-size: $txt-m;
-}
-%center-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-%vertical-box {
-  display: flex;
-  flex-direction: column;
-}
+@import "variables";
+@import "extends";
 
 /****************
     UTILITY
@@ -156,7 +109,21 @@ body {
             background-color: $bg-sec-color;
             height: 35rem;
             border: $previews-border;
+            border-top: 0;
             overflow: scroll;
+            p {
+              font-size: $heading-s;
+              font-weight: 300;
+              font-style: italic;
+              padding: 0.25rem;
+              padding-right: 0;
+            }
+            &.no-preview {
+              transition-property: height;
+              transition-duration: 1s;
+              transition-timing-function: ease-in-out;
+              color: red;
+            }
             div.preview-card {
               display: flex;
               align-items: center;
@@ -189,16 +156,19 @@ body {
           }
         }
         section {
+          height: 40.8rem;
+          overflow: scroll;
           width: 100%;
           background-color: $bg-sec-color;
           margin-left: 1.33rem;
           div#list-wrapper {
             padding: 0.66rem;
+            padding-top: 0.25rem;
             div#list-headings {
               display: flex;
               justify-content: space-between;
-              margin-top: 1rem;
               margin-bottom: 0.25rem;
+              margin-top: 0;
               h3 {
                 font-size: $heading-s;
                 font-weight: 300;

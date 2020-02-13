@@ -1,0 +1,110 @@
+@import "variables";
+@import "extends";
+
+body {
+  @extend %font;
+  div#wrapper-wrapper {
+    div#content-wrapper {
+      header {
+        h1 {
+        }
+      }
+
+      main {
+        grid-template-columns: auto;
+        aside {
+          width: 100%;
+          form {
+            div.field-wrapper {
+              &:first-of-type {
+              }
+              label {
+                i {
+                  &.fa-pizza-slice {
+                  }
+                  &.fa-fire {
+                  }
+                }
+              }
+              input {
+                &#meal {
+                }
+                &::placeholder {
+                }
+              }
+            }
+            button {
+            }
+          }
+
+          div#preview-cards {
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+            height: auto;
+            max-height: 22.5rem;
+            &.no-preview {
+              background: $transparent;
+              border: 0;
+            }
+            p {
+              
+            }
+
+            div.preview-card {
+              &.selected {
+              }
+              &:last-of-type {
+              }
+              div.preview-card-image {
+              }
+
+              div.preview-card-meal {
+              }
+            }
+          }
+        }
+        section {
+          height: auto;
+          margin-left: 0;
+          margin-top: 0.66rem;
+          // margin-top: 0.05rem;
+          &.no-preview {
+          }
+          div#list-wrapper {
+            div#list-headings {
+              h3 {
+                &:nth-of-type(1) {
+                }
+                &:nth-of-type(2) {
+                }
+              }
+            }
+
+            div#list-items {
+              div.list-item {
+                div.list-subitem {
+                  p.list-item-number {
+                  }
+                  div.list-item-image {
+                  }
+                  p.list-item-meal {
+                  }
+                  p.list-item-calories {
+                  }
+                  i.fa-minus-circle {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      footer {
+        p {
+        }
+      }
+    }
+  }
+}
