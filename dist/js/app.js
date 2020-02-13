@@ -241,7 +241,7 @@ let UICtrl = (function() {
     },
     showError: function(err) {
       hooks.previewCards.className = "preview-cards error";
-      hooks.previewCards.innerHTML = err;
+      hooks.previewCards.innerHTML = err + hooks.previewCards.innerHTML;
     },
     getHooks: function() {
       return hooks;

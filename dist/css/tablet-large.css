@@ -8,20 +8,28 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 1.25rem; }
 
-body div#wrapper-wrapper div#content-wrapper main {
-  grid-template-columns: auto; }
-  body div#wrapper-wrapper div#content-wrapper main aside {
-    width: 100%; }
-    body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
-      transition-property: all;
-      transition-duration: 1s;
-      transition-timing-function: ease-in-out;
-      height: auto;
-      max-height: 22.5rem; }
-      body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.error {
-        background: #ffffff00;
-        border: 0; }
-  body div#wrapper-wrapper div#content-wrapper main section {
-    height: auto;
-    margin-left: 0;
-    margin-top: 0.66rem; }
+body div#wrapper-wrapper {
+  min-height: 100vh; }
+  body div#wrapper-wrapper div#content-wrapper {
+    flex-direction: column;
+    position: relative; }
+    body div#wrapper-wrapper div#content-wrapper main {
+      grid-template-columns: auto;
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column; }
+      body div#wrapper-wrapper div#content-wrapper main aside {
+        width: 100%; }
+        body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
+          transition-property: all;
+          transition-duration: 1s;
+          transition-timing-function: ease-in-out;
+          height: auto;
+          max-height: 50vh; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.error {
+            background: #ffffff00;
+            border: 0; }
+      body div#wrapper-wrapper div#content-wrapper main section {
+        height: auto;
+        margin-left: 0;
+        margin-top: 0.66rem; }

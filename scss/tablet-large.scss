@@ -4,7 +4,11 @@
 body {
   @extend %font;
   div#wrapper-wrapper {
+    min-height: 100vh;
+
     div#content-wrapper {
+      flex-direction: column;
+      position: relative;
       header {
         h1 {
         }
@@ -12,6 +16,9 @@ body {
 
       main {
         grid-template-columns: auto;
+        min-height: 75vh;
+        display: flex;
+        flex-direction: column;
         aside {
           width: 100%;
           form {
@@ -42,13 +49,13 @@ body {
             transition-duration: 1s;
             transition-timing-function: ease-in-out;
             height: auto;
-            max-height: 22.5rem;
-            &.no-preview, &.error {
+            max-height: 50vh;
+            &.no-preview,
+            &.error {
               background: $transparent;
               border: 0;
             }
             p {
-
             }
 
             div.preview-card {
