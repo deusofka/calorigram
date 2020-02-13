@@ -54,41 +54,45 @@ body div#wrapper-wrapper {
       grid-template-columns: auto 1fr; }
       body div#wrapper-wrapper div#content-wrapper main aside {
         width: 22.5rem; }
-        body div#wrapper-wrapper div#content-wrapper main aside form {
-          display: grid;
-          grid-template-columns: auto 1fr; }
-          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper {
-            display: flex;
-            height: 2.25rem;
-            margin-bottom: 0.66rem; }
-            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper:first-of-type {
-              grid-column-start: 1;
-              grid-column-end: 3; }
-            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label {
-              height: 100%;
-              padding: 0.1rem 0.625rem;
-              background-color: #ffffff;
-              border-right: 1px solid #aaa; }
-              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i {
-                position: relative;
-                width: 1rem;
-                height: auto;
-                color: #000; }
-                body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-pizza-slice {
-                  right: 2px; }
-                body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-fire {
-                  left: 0.5px; }
-            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input {
-              height: 100%;
-              border: none;
-              padding-left: 0.5rem; }
-              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input#meal {
-                width: 100%; }
-              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input::placeholder {
-                color: #333; }
-          body div#wrapper-wrapper div#content-wrapper main aside form button {
-            height: 2.25rem;
-            margin-left: 0.66rem; }
+        body div#wrapper-wrapper div#content-wrapper main aside form #calories-submit-container {
+          display: flex;
+          flex-direction: row; }
+        body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper {
+          display: flex;
+          height: 2.25rem;
+          margin-bottom: 0.66rem; }
+          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper:last-of-type {
+            flex: 1 1 auto; }
+          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label {
+            height: 100%;
+            padding: 0.1rem 0.625rem;
+            background-color: #ffffff;
+            border-right: 1px solid #aaa; }
+            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i {
+              position: relative;
+              width: 1rem;
+              height: auto;
+              color: #000; }
+              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-pizza-slice {
+                right: 2px; }
+              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-fire {
+                left: 0.5px; }
+          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input {
+            height: 100%;
+            border: none;
+            padding-left: 0.5rem; }
+            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input#meal {
+              width: 100%; }
+            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input#calories {
+              width: 100%; }
+            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input::placeholder {
+              color: #333; }
+        body div#wrapper-wrapper div#content-wrapper main aside form button {
+          flex: 0 1 90px;
+          width: fit-content;
+          padding: 0 0.5rem;
+          height: 2.25rem;
+          margin-left: 0.66rem; }
         body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
           background-color: #ffffff26;
           height: 35rem;

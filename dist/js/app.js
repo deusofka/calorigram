@@ -323,16 +323,18 @@ let App = (function() {
 
     if (!meal) {
       UICtrl.clearPreview();
-      console.log("Meal Empty");
-      UICtrl.showError("Meals Field Empty");
+      UICtrl.showError("Please enter a meal before submitting");
       return;
     } else if (!calories) {
       UICtrl.clearPreview();
-      console.log("Calories Empty");
-      UICtrl.showError("Invalid Calories Field");
+      UICtrl.showError("Please enter a valid number for calories");
+      return;
+    } else if (calories < 0) {
+      UICtrl.clearPreview();
+      UICtrl.showError("Please enter a positive number for calories");
       return;
     }
-    let  imageUrl;
+    let imageUrl;
     if (selected) {
       imageUrl = selected.firstElementChild.style.backgroundImage
         .match(/".*"/)[0]

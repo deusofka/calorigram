@@ -55,13 +55,17 @@ body {
         aside {
           width: 22.5rem;
           form {
-            display: grid;
-            grid-template-columns: auto 1fr;
+            #calories-submit-container {
+              display: flex;
+              flex-direction: row;
+            }
             div.field-wrapper {
               &:first-of-type {
-                grid-column-start: 1;
-                grid-column-end: 3;
               }
+              &:last-of-type {
+                flex: 1 1 auto;
+              }
+
               display: flex;
               height: 2.25rem;
               margin-bottom: 0.66rem;
@@ -90,6 +94,9 @@ body {
                 &#meal {
                   width: 100%;
                 }
+                &#calories {
+                  width: 100%;
+                }
                 &::placeholder {
                   color: $fg-ter-color;
                 }
@@ -100,6 +107,9 @@ body {
               }
             }
             button {
+              flex: 0 1 90px;
+              width: fit-content;
+              padding: 0 0.5rem;
               height: 2.25rem;
               margin-left: 0.66rem;
             }
