@@ -51,7 +51,9 @@ body {
             height: auto;
             max-height: 50vh;
             &.no-preview,
-            &.error {
+            &.error,
+            &.success {
+              width: 100%;
               background: $transparent;
               border: 0;
             }

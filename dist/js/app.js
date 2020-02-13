@@ -241,7 +241,11 @@ let UICtrl = (function() {
     },
     showError: function(err) {
       hooks.previewCards.className = "preview-cards error";
-      hooks.previewCards.innerHTML = err + hooks.previewCards.innerHTML;
+      hooks.previewCards.innerHTML = err;
+    },
+    showSuccess: function(msg) {
+      hooks.previewCards.className = "preview-cards success";
+      hooks.previewCards.innerHTML = msg;
     },
     getHooks: function() {
       return hooks;
@@ -347,6 +351,7 @@ let App = (function() {
     UICtrl.addItem(res.totalCalories, res.serial, imageUrl, meal, calories);
     UICtrl.clearInputs();
     UICtrl.clearPreview();
+    UICtrl.showSuccess("You have successfully inserted a meal :)");
   });
 
   /****************

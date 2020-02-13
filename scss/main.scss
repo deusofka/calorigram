@@ -137,6 +137,9 @@ body {
             &.error {
               color: red;
             }
+            &.success {
+              color: green;
+            }
             div.preview-card {
               display: flex;
               align-items: center;

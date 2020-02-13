@@ -112,6 +112,8 @@ body div#wrapper-wrapper {
             color: #ffffff; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.error {
             color: red; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success {
+            color: green; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards div.preview-card {
             display: flex;
             align-items: center;
