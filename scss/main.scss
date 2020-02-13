@@ -122,6 +122,9 @@ body {
               transition-property: height;
               transition-duration: 1s;
               transition-timing-function: ease-in-out;
+              color: $bg-ter-color;
+            }
+            &.error {
               color: red;
             }
             div.preview-card {

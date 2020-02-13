@@ -239,6 +239,10 @@ let UICtrl = (function() {
       });
       hooks.listHeadingCalories.innerHTML = `Total calories: ${totalCalories}`;
     },
+    showError: function(err) {
+      hooks.previewCards.className = "preview-cards error";
+      hooks.previewCards.innerHTML = err;
+    },
     getHooks: function() {
       return hooks;
     }
@@ -310,15 +314,25 @@ let App = (function() {
      Submit Meal
   *****************/
   hooks.add.addEventListener("click", e => {
-    console.log(selected);
+    console.log("Hey");
+
     e.preventDefault();
     let meal = hooks.mealInput.value;
     let calories = hooks.caloriesInput.value;
-    if (!meal || !calories) {
+    console.log(calories);
+
+    if (!meal) {
       UICtrl.clearPreview();
+      console.log("Meal Empty");
+      UICtrl.showError("Meals Field Empty");
+      return;
+    } else if (!calories) {
+      UICtrl.clearPreview();
+      console.log("Calories Empty");
+      UICtrl.showError("Invalid Calories Field");
       return;
     }
-    let imageUrl;
+    let  imageUrl;
     if (selected) {
       imageUrl = selected.firstElementChild.style.backgroundImage
         .match(/".*"/)[0]
