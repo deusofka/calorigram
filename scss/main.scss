@@ -141,11 +141,11 @@ body {
                 margin-bottom: 0;
               }
               div.preview-card-image {
+                flex: 0 0 4rem;
                 margin: 0 0.66rem;
                 background: $image;
                 background-size: cover;
                 background-position: center;
-                width: 4rem;
                 height: 4rem;
                 border-radius: 50%;
               }
@@ -198,6 +198,7 @@ body {
                     margin: 0 1rem;
                   }
                   div.list-item-image {
+                    flex: 0 0 4rem;
                     background: $image;
                     border-radius: 50%;
                     background-size: cover;

@@ -146,6 +146,11 @@ let UICtrl = (function() {
       previewItems.forEach(function(item) {
         replacePlaceholderImage(item);
         let selectedClass = item.match ? " selected" : "";
+        // if (item.name.length > 15) {
+        //   console.log(`Before: ${item.name}, length: ${item.name.length}`);
+        //   item.name = item.name.substring(0, 25);
+        //   console.log(`After: ${item.name}, length: ${item.name.length}`);
+        // }
         itemsHTML += `
         <div class="preview-card${selectedClass}">
             <div class="preview-card-image" style="background-image: url('${item.imageUrl}')"></div>

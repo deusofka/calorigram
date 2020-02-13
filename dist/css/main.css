@@ -121,11 +121,11 @@ body div#wrapper-wrapper {
             body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards div.preview-card:last-of-type {
               margin-bottom: 0; }
             body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards div.preview-card div.preview-card-image {
+              flex: 0 0 4rem;
               margin: 0 0.66rem;
               background: url("../img/burger.png");
               background-size: cover;
               background-position: center;
-              width: 4rem;
               height: 4rem;
               border-radius: 50%; }
       body div#wrapper-wrapper div#content-wrapper main section {
@@ -164,6 +164,7 @@ body div#wrapper-wrapper {
                 body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-items div.list-item div.list-subitem p.list-item-number {
                   margin: 0 1rem; }
                 body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-items div.list-item div.list-subitem div.list-item-image {
+                  flex: 0 0 4rem;
                   background: url("../img/burger.png");
                   border-radius: 50%;
                   background-size: cover;
