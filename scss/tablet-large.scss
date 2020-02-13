@@ -43,12 +43,12 @@ body {
             transition-timing-function: ease-in-out;
             height: auto;
             max-height: 22.5rem;
-            &.no-preview {
+            &.no-preview, &.error {
               background: $transparent;
               border: 0;
             }
             p {
-              
+
             }
 
             div.preview-card {
