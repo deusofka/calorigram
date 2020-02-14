@@ -34,15 +34,19 @@ i {
 body {
   @extend %font;
   div#wrapper-wrapper {
-    min-height: 100vh;
+    height: 100vh;
 
     background-color: $bg-color;
     div#content-wrapper {
+      display: flex;
+      flex-direction: column;
       color: $fg-color;
       max-width: $content-width;
       width: 90%;
+      height: inherit;
       margin: auto;
       header {
+        flex: 0 1 auto;
         h1 {
           font-family: "Amatic SC", cursive;
           font-size: $heading-l;
@@ -52,11 +56,18 @@ body {
       }
 
       main {
+        flex: 1 1 auto;
         display: grid;
         grid-template-columns: auto 1fr;
         aside {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          // height:
           width: 22.5rem;
           form {
+            flex: 0 1 auto;
             #calories-submit-container {
               display: flex;
               flex-direction: row;
@@ -124,8 +135,9 @@ body {
           }
 
           div#preview-cards {
+            height: 1rem;
+            flex: 1 1 auto;
             background-color: $bg-sec-color;
-            height: 0px;
             border: $previews-border;
             border-top: 0;
             overflow: scroll;
@@ -180,18 +192,25 @@ body {
           }
         }
         section {
-          height: 40.8rem;
-          overflow: scroll;
-          width: 100%;
           background-color: $bg-sec-color;
           margin-left: 1.33rem;
+          display: flex;
+          flex-direction: column;
+          padding-bottom: 0.66rem;
           div#list-wrapper {
-            padding: 0.66rem;
-            padding-top: 0.25rem;
+            height: 1rem;
+            padding: 0 0.66rem;
+            flex: 1 1 auto;
+            overflow: scroll;
+
             div#list-headings {
+              background: #4d394d;
+              position: sticky;
+              top: 0;
               display: flex;
               justify-content: space-between;
-              margin-bottom: 0.25rem;
+              padding-top: 0.25rem;
+              padding-bottom: 0.25rem;
               margin-top: 0;
               h3 {
                 font-size: $heading-s;
@@ -253,6 +272,7 @@ body {
       }
 
       footer {
+        flex: 0 1 auto;
         p {
           font-family: "Amatic SC", cursive;
           font-size: $txt-l;

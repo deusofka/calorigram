@@ -145,7 +145,7 @@ let UICtrl = (function() {
 
   adjustForDesktop = () => {
     if (window.innerWidth >= 900) {
-      hooks.previewCards.style.height = "35rem";
+      hooks.previewCards.style.height = "1rem";
     }
   };
   // Public members
@@ -195,7 +195,7 @@ let UICtrl = (function() {
         hooks.previewCards.style.height = height;
         console.log(height);
       } else {
-        hooks.previewCards.style.height = "35rem";
+        hooks.previewCards.style.height = "1rem";
       }
     },
     clearPreview: function() {

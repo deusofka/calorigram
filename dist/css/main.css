@@ -41,66 +41,78 @@ i {
   font-size: 1rem; }
 
 body div#wrapper-wrapper {
-  min-height: 100vh;
+  height: 100vh;
   background-color: #2e162e; }
   body div#wrapper-wrapper div#content-wrapper {
+    display: flex;
+    flex-direction: column;
     color: #fff;
     max-width: 1280px;
     width: 90%;
+    height: inherit;
     margin: auto; }
-    body div#wrapper-wrapper div#content-wrapper header h1 {
-      font-family: "Amatic SC", cursive;
-      font-size: 3.5rem;
-      text-align: center;
-      padding: 1rem 0; }
+    body div#wrapper-wrapper div#content-wrapper header {
+      flex: 0 1 auto; }
+      body div#wrapper-wrapper div#content-wrapper header h1 {
+        font-family: "Amatic SC", cursive;
+        font-size: 3.5rem;
+        text-align: center;
+        padding: 1rem 0; }
     body div#wrapper-wrapper div#content-wrapper main {
+      flex: 1 1 auto;
       display: grid;
       grid-template-columns: auto 1fr; }
       body div#wrapper-wrapper div#content-wrapper main aside {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
         width: 22.5rem; }
-        body div#wrapper-wrapper div#content-wrapper main aside form #calories-submit-container {
-          display: flex;
-          flex-direction: row; }
-        body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper {
-          display: flex;
-          height: 2.25rem;
-          margin-bottom: 0.66rem; }
-          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper:last-of-type {
-            flex: 1 1 auto; }
-          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label {
-            height: 100%;
-            padding: 0.1rem 0.625rem;
-            background-color: #ffffff;
-            border-right: 1px solid #aaa; }
-            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label.error i {
-              color: red; }
-            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i {
-              position: relative;
-              width: 1rem;
-              height: auto;
-              color: #000; }
-              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-pizza-slice {
-                right: 2px; }
-              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-fire {
-                left: 0.5px; }
-          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input {
-            width: 100%;
-            height: 100%;
-            border: none;
-            padding-left: 0.5rem; }
-            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input.error::placeholder {
-              color: red; }
-            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input::placeholder {
-              color: #333; }
-        body div#wrapper-wrapper div#content-wrapper main aside form button {
-          flex: 0 1 90px;
-          width: fit-content;
-          padding: 0 0.5rem;
-          height: 2.25rem;
-          margin-left: 0.66rem; }
+        body div#wrapper-wrapper div#content-wrapper main aside form {
+          flex: 0 1 auto; }
+          body div#wrapper-wrapper div#content-wrapper main aside form #calories-submit-container {
+            display: flex;
+            flex-direction: row; }
+          body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper {
+            display: flex;
+            height: 2.25rem;
+            margin-bottom: 0.66rem; }
+            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper:last-of-type {
+              flex: 1 1 auto; }
+            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label {
+              height: 100%;
+              padding: 0.1rem 0.625rem;
+              background-color: #ffffff;
+              border-right: 1px solid #aaa; }
+              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label.error i {
+                color: red; }
+              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i {
+                position: relative;
+                width: 1rem;
+                height: auto;
+                color: #000; }
+                body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-pizza-slice {
+                  right: 2px; }
+                body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i.fa-fire {
+                  left: 0.5px; }
+            body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input {
+              width: 100%;
+              height: 100%;
+              border: none;
+              padding-left: 0.5rem; }
+              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input.error::placeholder {
+                color: red; }
+              body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input::placeholder {
+                color: #333; }
+          body div#wrapper-wrapper div#content-wrapper main aside form button {
+            flex: 0 1 90px;
+            width: fit-content;
+            padding: 0 0.5rem;
+            height: 2.25rem;
+            margin-left: 0.66rem; }
         body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
+          height: 1rem;
+          flex: 1 1 auto;
           background-color: #ffffff26;
-          height: 0px;
           border: 0.66rem #ffffff00 solid;
           border-top: 0;
           overflow: scroll; }
@@ -142,18 +154,24 @@ body div#wrapper-wrapper {
               height: 4rem;
               border-radius: 50%; }
       body div#wrapper-wrapper div#content-wrapper main section {
-        height: 40.8rem;
-        overflow: scroll;
-        width: 100%;
         background-color: #ffffff26;
-        margin-left: 1.33rem; }
+        margin-left: 1.33rem;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0.66rem; }
         body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper {
-          padding: 0.66rem;
-          padding-top: 0.25rem; }
+          height: 1rem;
+          padding: 0 0.66rem;
+          flex: 1 1 auto;
+          overflow: scroll; }
           body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-headings {
+            background: #4d394d;
+            position: sticky;
+            top: 0;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.25rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
             margin-top: 0; }
             body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-headings h3 {
               font-size: 1.4rem;
@@ -187,8 +205,10 @@ body div#wrapper-wrapper {
                   margin-right: 1rem; }
                 body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-items div.list-item div.list-subitem i.fa-minus-circle {
                   margin: 0 1rem; }
-    body div#wrapper-wrapper div#content-wrapper footer p {
-      font-family: "Amatic SC", cursive;
-      font-size: 1.5rem;
-      text-align: center;
-      padding: 1.5rem 0; }
+    body div#wrapper-wrapper div#content-wrapper footer {
+      flex: 0 1 auto; }
+      body div#wrapper-wrapper div#content-wrapper footer p {
+        font-family: "Amatic SC", cursive;
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 1.5rem 0; }
