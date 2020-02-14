@@ -41,6 +41,7 @@ i {
   font-size: 1rem; }
 
 body div#wrapper-wrapper {
+  min-height: 100vh;
   background-color: #2e162e; }
   body div#wrapper-wrapper div#content-wrapper {
     color: #fff;

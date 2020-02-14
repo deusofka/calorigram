@@ -34,6 +34,8 @@ i {
 body {
   @extend %font;
   div#wrapper-wrapper {
+    min-height: 100vh;
+
     background-color: $bg-color;
     div#content-wrapper {
       color: $fg-color;
