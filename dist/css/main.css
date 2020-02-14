@@ -41,6 +41,7 @@ i {
   font-size: 1rem; }
 
 body div#wrapper-wrapper {
+  min-height: unset;
   height: 100vh;
   background-color: #2e162e; }
   body div#wrapper-wrapper div#content-wrapper {
@@ -50,7 +51,8 @@ body div#wrapper-wrapper {
     max-width: 1280px;
     width: 90%;
     height: inherit;
-    margin: auto; }
+    margin: auto;
+    position: unset; }
     body div#wrapper-wrapper div#content-wrapper header {
       flex: 0 1 auto; }
       body div#wrapper-wrapper div#content-wrapper header h1 {
@@ -61,7 +63,8 @@ body div#wrapper-wrapper {
     body div#wrapper-wrapper div#content-wrapper main {
       flex: 1 1 auto;
       display: grid;
-      grid-template-columns: auto 1fr; }
+      grid-template-columns: auto 1fr;
+      min-height: unset; }
       body div#wrapper-wrapper div#content-wrapper main aside {
         height: 100%;
         display: flex;
@@ -110,6 +113,8 @@ body div#wrapper-wrapper {
             height: 2.25rem;
             margin-left: 0.66rem; }
         body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
+          transition: none;
+          max-height: unset;
           height: 1rem;
           flex: 1 1 auto;
           background-color: #ffffff26;
@@ -125,12 +130,15 @@ body div#wrapper-wrapper {
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview {
             padding-top: 0.45rem;
             color: #ffffff; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.error, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.alert {
+            width: unset;
+            background-color: #ffffff26;
+            border: 0.66rem #ffffff00 solid;
+            height: unset; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success {
-            color: #00ff00;
-            padding-top: 0.5rem; }
+            color: #00ff00; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.alert {
-            color: #ffbb00;
-            padding-top: 0.5rem; }
+            color: #ffbb00; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards div.preview-card {
             display: flex;
             align-items: center;
@@ -154,8 +162,12 @@ body div#wrapper-wrapper {
               height: 4rem;
               border-radius: 50%; }
       body div#wrapper-wrapper div#content-wrapper main section {
+        height: unset;
+        overflow: unset;
+        width: unset;
         background-color: #ffffff26;
         margin-left: 1.33rem;
+        margin-top: unset;
         display: flex;
         flex-direction: column;
         padding-bottom: 0.66rem; }
@@ -170,6 +182,7 @@ body div#wrapper-wrapper {
             top: 0;
             display: flex;
             justify-content: space-between;
+            margin-bottom: unset;
             padding-top: 0.25rem;
             padding-bottom: 0.25rem;
             margin-top: 0; }

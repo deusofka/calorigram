@@ -1,21 +1,60 @@
 @import "variables";
 @import "extends";
+
+/****************
+    UTILITY
+****************/
 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+input,
+label {
+  display: inline-block;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  @extend %font;
+  border: $btn-border;
+  outline: none;
+  background-color: #2e162e;
+  color: $bg-ter-color;
+}
+
+i {
+  font-size: 1rem;
+}
+
 body {
   @extend %font;
   div#wrapper-wrapper {
     min-height: 100vh;
 
+    background-color: $bg-color;
     div#content-wrapper {
+      color: $fg-color;
+      max-width: $content-width;
+      width: 90%;
+      margin: auto;
       flex-direction: column;
       position: relative;
       header {
         h1 {
+          font-family: "Amatic SC", cursive;
+          font-size: $heading-l;
+          text-align: center;
+          padding: 1rem 0;
         }
       }
 
       main {
+        display: grid;
         grid-template-columns: auto;
         min-height: 75vh;
         display: flex;
@@ -24,31 +63,89 @@ body {
           width: 100%;
 
           form {
+            #calories-submit-container {
+              display: flex;
+              flex-direction: row;
+            }
             div.field-wrapper {
               &:first-of-type {
               }
+              &:last-of-type {
+                flex: 1 1 auto;
+              }
+
+              display: flex;
+              height: 2.25rem;
+              margin-bottom: 0.66rem;
               label {
                 i {
+                  @extend %animate;
+                }
+                &.error {
+                  i {
+                    color: red;
+                  }
+                }
+                height: 100%;
+                padding: 0.1rem 0.625rem;
+                @extend %center-box;
+                background-color: $bg-ter-color;
+                border-right: $label-border;
+                i {
+                  position: relative;
                   &.fa-pizza-slice {
+                    right: 2px;
                   }
                   &.fa-fire {
+                    left: 0.5px;
                   }
+                  width: 1rem;
+                  height: auto;
+                  color: $fg-sec-color;
                 }
               }
               input {
-                &::placeholder {
+                &.error::placeholder {
+                  color: red;
                 }
+                width: 100%;
+                &::placeholder {
+                  @extend %animate;
+                  color: $fg-ter-color;
+                }
+                @extend %font;
+                height: 100%;
+                border: none;
+                padding-left: 0.5rem;
               }
             }
             button {
+              flex: 0 1 90px;
+              width: fit-content;
+              padding: 0 0.5rem;
+              height: 2.25rem;
+              margin-left: 0.66rem;
             }
           }
 
           div#preview-cards {
             @extend %animate2;
             max-height: 50vh;
+            background-color: $bg-sec-color;
+            height: 0px;
+            border: $previews-border;
+            border-top: 0;
+            overflow: scroll;
+            p {
+              font-size: $heading-s;
+              font-weight: 300;
+              font-style: italic;
+              padding: 0.25rem;
+              padding-right: 0;
+            }
             &.no-preview {
               padding-top: 0;
+              color: $bg-ter-color;
             }
 
             &.no-preview,
@@ -75,12 +172,29 @@ body {
 
             div.preview-card {
               @extend %animate;
-
+              display: flex;
+              align-items: center;
+              background-color: $bg-ter-color;
+              height: 5rem;
+              color: $fg-sec-color;
+              margin-bottom: 0.66rem;
+              border: $preview-border;
               &.selected {
+                border: $preview-border;
+                background-color: transparent;
+                color: $bg-ter-color;
               }
               &:last-of-type {
+                margin-bottom: 0;
               }
               div.preview-card-image {
+                flex: 0 0 4rem;
+                margin: 0 0.66rem;
+                background: $image;
+                background-size: cover;
+                background-position: center;
+                height: 4rem;
+                border-radius: 50%;
               }
 
               div.preview-card-meal {
@@ -90,6 +204,9 @@ body {
         }
         section {
           height: auto;
+          overflow: scroll;
+          width: 100%;
+          background-color: $bg-sec-color;
           margin-left: 0;
           margin-top: 0.66rem;
           // margin-top: 0.05rem;
@@ -98,29 +215,66 @@ body {
           div#list-wrapper {
             &.zero-items {
               padding-bottom: 0;
+              padding: 0.66rem;
+              padding-top: 0.25rem;
             }
             div#list-headings {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 0.25rem;
+              margin-top: 0;
               h3 {
+                font-size: $heading-s;
+                font-weight: 300;
+                font-style: italic;
                 &:nth-of-type(1) {
+                  margin-left: 0.25rem;
                 }
                 &:nth-of-type(2) {
+                  margin-right: 1rem;
                 }
               }
             }
 
             div#list-items {
+              color: $fg-sec-color;
               div.list-item {
+                background-color: $bg-ter-color;
+                margin-bottom: 1px;
+                display: flex;
+                justify-content: space-between;
+                height: 5rem;
                 div.list-subitem {
+                  display: flex;
+                  align-items: center;
+
                   p.list-item-number {
+                    margin: 0 1rem;
                   }
                   div.list-item-image {
+                    flex: 0 0 4rem;
+                    background: $image;
+                    border-radius: 50%;
+                    background-size: cover;
+                    background-position: center;
+                    width: 4rem;
+                    height: 4rem;
+                    margin-right: 1rem;
                   }
                   p.list-item-meal {
                   }
                   p.list-item-calories {
                   }
                   i.fa-minus-circle {
+                    margin: 0 1rem;
                   }
+
+                  // &:nth-of-type(1) {
+
+                  // }
+                  // &:nth-of-type(2) {
+
+                  // }
                 }
               }
             }
@@ -130,6 +284,10 @@ body {
 
       footer {
         p {
+          font-family: "Amatic SC", cursive;
+          font-size: $txt-l;
+          text-align: center;
+          padding: 1.5rem 0;
         }
       }
     }
