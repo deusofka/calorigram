@@ -129,7 +129,9 @@ let UICtrl = (function() {
     listHeadingCalories: document.querySelector("#list-heading-calories"),
     listItems: document.querySelector("#list-items"),
     mealInput: document.querySelector("#meal"),
+    mealLabel: document.querySelector("label[for='meal']"),
     caloriesInput: document.querySelector("#calories"),
+    caloriesLabel: document.querySelector("label[for='calories']"),
     add: document.querySelector("#add"),
     previewCards: document.querySelector("#preview-cards"),
     // For changing heading padding
@@ -241,10 +243,22 @@ let UICtrl = (function() {
       });
       hooks.listHeadingCalories.innerHTML = `Total calories: ${totalCalories}`;
     },
-    showError: function(err) {
-      hooks.previewCards.className = "preview-cards error";
-      hooks.previewCards.innerHTML = err;
+    showError: function(err, input, label) {
+      input.value = "";
+      input.placeholder = err;
+      input.className = "error";
+      label.className = "error";
     },
+    clearCarlorieInput: function() {
+      hooks.caloriesInput.value = "";
+    },
+    resetErrorStyle: function(msg, input, label) {
+      // Remove Error styling from input
+      input.placeholder = msg;
+      input.className = "";
+      label.className = "";
+    },
+
     showSuccess: function(msg) {
       hooks.previewCards.className = "preview-cards success";
       hooks.previewCards.innerHTML = msg;
@@ -281,13 +295,16 @@ let App = (function() {
   hooks.mealInput.addEventListener("keyup", e => {
     selected = null;
     let search = e.target.value;
+
+    UICtrl.resetErrorStyle("Enter Meal", hooks.mealInput, hooks.mealLabel);
+
     if (search === "") {
       UICtrl.clearPreview();
       return;
     }
+
     APICtrl.get(search)
       .then(function(res) {
-        console.log(res);
         UICtrl.paintPreview(res.items);
         if (res.index != null) {
           selected = document.querySelector(
@@ -299,6 +316,18 @@ let App = (function() {
       .catch(function(err) {
         console.log(err);
       });
+  });
+
+  /****************
+    Calories input
+  *****************/
+  hooks.caloriesInput.addEventListener("keyup", e => {
+    console.log("Calories!!");
+    UICtrl.resetErrorStyle(
+      "Enter Calories",
+      hooks.caloriesInput,
+      hooks.caloriesLabel
+    );
   });
 
   /****************
@@ -338,15 +367,28 @@ let App = (function() {
 
     if (!meal) {
       UICtrl.clearPreview();
-      UICtrl.showError("Please enter a meal before submitting");
+      UICtrl.showError(
+        "Please Enter a meal first",
+        hooks.mealInput,
+        hooks.mealLabel
+      );
       return;
     } else if (!calories) {
       UICtrl.clearPreview();
-      UICtrl.showError("Please enter a valid number for calories");
+      UICtrl.showError(
+        "Please enter a valid no.",
+        hooks.caloriesInput,
+        hooks.caloriesLabel
+      );
       return;
     } else if (calories < 0) {
       UICtrl.clearPreview();
-      UICtrl.showError("Please enter a positive number for calories");
+      UICtrl.clearCarlorieInput();
+      UICtrl.showError(
+        "Must be a postive no.",
+        hooks.caloriesInput,
+        hooks.caloriesLabel
+      );
       return;
     }
     let imageUrl;
@@ -380,6 +422,7 @@ let App = (function() {
       );
       StorageCtrl.set(items);
       UICtrl.removeItem(item, totalCalories);
+      UICtrl.showSuccess("You have successfully removed a meal :)");
       UICtrl.padListHeading(items.length);
     }
   });

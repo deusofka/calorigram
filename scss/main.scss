@@ -71,6 +71,11 @@ body {
               margin-bottom: 0.66rem;
 
               label {
+                &.error {
+                  i {
+                    color: red;
+                  }
+                }
                 height: 100%;
                 padding: 0.1rem 0.625rem;
                 @extend %center-box;
@@ -87,16 +92,13 @@ body {
                   width: 1rem;
                   height: auto;
                   color: $fg-sec-color;
-                  // margin: 1rem;
                 }
               }
               input {
-                &#meal {
-                  width: 100%;
+                &.error::placeholder {
+                  color: red;
                 }
-                &#calories {
-                  width: 100%;
-                }
+                width: 100%;
                 &::placeholder {
                   color: $fg-ter-color;
                 }
@@ -134,11 +136,9 @@ body {
               transition-timing-function: ease-in-out;
               color: $bg-ter-color;
             }
-            &.error {
-              color: red;
-            }
             &.success {
-              color: green;
+              color: $success-l;
+              padding-top: 0.5rem;
             }
             div.preview-card {
               display: flex;
