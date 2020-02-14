@@ -273,8 +273,6 @@ let UICtrl = (function() {
       input.placeholder = err;
       input.className = "error";
       label.className = "error";
-      hooks.previewCards.style.height = "0px";
-      height = "0px";
       adjustForDesktop();
     },
     clearCarlorieInput: function() {
@@ -410,7 +408,6 @@ let App = (function() {
       );
       return;
     } else if (!calories) {
-      UICtrl.clearPreview();
       UICtrl.showError(
         "Please enter a valid no.",
         hooks.caloriesInput,
@@ -418,7 +415,6 @@ let App = (function() {
       );
       return;
     } else if (calories < 0) {
-      UICtrl.clearPreview();
       UICtrl.clearCarlorieInput();
       UICtrl.showError(
         "Must be a postive no.",

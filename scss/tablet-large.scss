@@ -56,8 +56,9 @@ body {
             &.success,
             &.alert {
               width: 100%;
-              background: $transparent;
-              border: 0;
+              border-color: $transparent;
+              background-color: transparent;
+              border-width: 0;
               height: 0;
             }
             &.success {

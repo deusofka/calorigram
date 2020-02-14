@@ -32,8 +32,9 @@ body div#wrapper-wrapper {
             padding-top: 0; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.error, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.alert {
             width: 100%;
-            background: #ffffff00;
-            border: 0;
+            border-color: #ffffff00;
+            background-color: transparent;
+            border-width: 0;
             height: 0; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success {
             color: #00c400;
