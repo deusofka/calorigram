@@ -166,7 +166,6 @@ let UICtrl = (function() {
             <div class="preview-card-meal">${item.name}</div>
         </div>`;
       });
-      hooks.previewCards.innerHTML = itemsHTML;
       if (itemsHTML === "") {
         hooks.previewCards.className = "no-preview";
         hooks.previewCards.innerHTML =
@@ -318,6 +317,7 @@ let App = (function() {
   UICtrl.paintList(StateCtrl.getState());
   UICtrl.clearPreview();
   UICtrl.padListHeading(items.length);
+  UICtrl.adjustHeight();
 
   /****************
        Resize
@@ -336,7 +336,7 @@ let App = (function() {
     selected = null;
     let search = e.target.value;
 
-    UICtrl.resetErrorStyle("Enter Meal", hooks.mealInput, hooks.mealLabel);
+    UICtrl.resetErrorStyle("Enter meal", hooks.mealInput, hooks.mealLabel);
 
     if (search === "") {
       UICtrl.clearPreview();
@@ -363,7 +363,7 @@ let App = (function() {
   *****************/
   hooks.caloriesInput.addEventListener("keyup", e => {
     UICtrl.resetErrorStyle(
-      "Enter Calories",
+      "Enter calories",
       hooks.caloriesInput,
       hooks.caloriesLabel
     );

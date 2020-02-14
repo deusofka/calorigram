@@ -99,7 +99,7 @@ body div#wrapper-wrapper {
           margin-left: 0.66rem; }
         body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
           background-color: #ffffff26;
-          height: 35rem;
+          height: 0px;
           border: 0.66rem #ffffff00 solid;
           border-top: 0;
           overflow: scroll; }
