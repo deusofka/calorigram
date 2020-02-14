@@ -71,6 +71,9 @@ body {
               margin-bottom: 0.66rem;
 
               label {
+                i {
+                  @extend %animate;
+                }
                 &.error {
                   i {
                     color: red;
@@ -100,6 +103,7 @@ body {
                 }
                 width: 100%;
                 &::placeholder {
+                  @extend %animate;
                   color: $fg-ter-color;
                 }
                 @extend %font;
@@ -131,13 +135,15 @@ body {
               padding-right: 0;
             }
             &.no-preview {
-              transition-property: height;
-              transition-duration: 1s;
-              transition-timing-function: ease-in-out;
+              padding-top: 0.45rem;
               color: $bg-ter-color;
             }
             &.success {
               color: $success-l;
+              padding-top: 0.5rem;
+            }
+            &.alert {
+              color: $alert-l;
               padding-top: 0.5rem;
             }
             div.preview-card {

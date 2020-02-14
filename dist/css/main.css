@@ -13,6 +13,9 @@ body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper l
   justify-content: center;
   align-items: center; }
 
+body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper label i, body div#wrapper-wrapper div#content-wrapper main aside form div.field-wrapper input::placeholder {
+  transition: all 0.5s ease-in-out; }
+
 /****************
     UTILITY
 ****************/
@@ -107,12 +110,13 @@ body div#wrapper-wrapper {
             padding: 0.25rem;
             padding-right: 0; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview {
-            transition-property: height;
-            transition-duration: 1s;
-            transition-timing-function: ease-in-out;
+            padding-top: 0.45rem;
             color: #ffffff; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success {
             color: #00ff00;
+            padding-top: 0.5rem; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.alert {
+            color: #ffbb00;
             padding-top: 0.5rem; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards div.preview-card {
             display: flex;

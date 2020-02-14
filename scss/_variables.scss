@@ -17,6 +17,9 @@ $transparent: #ffffff00;
 $success-l: #00ff00;
 $success: rgb(0, 196, 0);
 
+$alert-l: #ffbb00;
+$alert: #ffbb00;
+
 // Sizes
 $content-width: 1280px;
 $heading-l: 3.5rem;
@@ -31,5 +34,4 @@ $btn-border: 1px solid $fg-color;
 $previews-border: 0.66rem $transparent solid;
 $preview-border: 1px solid $bg-ter-color;
 // Image
-// $image: url("https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png");
 $image: url("../img/burger.png");

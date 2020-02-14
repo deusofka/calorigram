@@ -1,10 +1,7 @@
 @import "variables";
 @import "extends";
-
 * {
-  @extend %animate;
 }
-
 body {
   @extend %font;
   div#wrapper-wrapper {
@@ -25,6 +22,7 @@ body {
         flex-direction: column;
         aside {
           width: 100%;
+
           form {
             div.field-wrapper {
               &:first-of-type {
@@ -38,8 +36,6 @@ body {
                 }
               }
               input {
-                &#meal {
-                }
                 &::placeholder {
                 }
               }
@@ -49,19 +45,27 @@ body {
           }
 
           div#preview-cards {
-            @extend %animate;
-            height: auto;
+            @extend %animate2;
             max-height: 50vh;
+            &.no-preview {
+              padding-top: 0;
+            }
 
             &.no-preview,
             &.error,
-            &.success {
+            &.success,
+            &.alert {
               width: 100%;
               background: $transparent;
               border: 0;
+              height: 0;
             }
             &.success {
               color: $success;
+              padding-top: 0;
+            }
+            &.alert {
+              color: $alert;
               padding-top: 0;
             }
 
@@ -69,6 +73,8 @@ body {
             }
 
             div.preview-card {
+              @extend %animate;
+
               &.selected {
               }
               &:last-of-type {

@@ -8,10 +8,11 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 1.25rem; }
 
-*, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
-  transition-property: all;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out; }
+body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards div.preview-card {
+  transition: all 0.5s ease-in-out; }
+
+body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
+  transition: all 1s ease-in-out; }
 
 body div#wrapper-wrapper {
   min-height: 100vh; }
@@ -26,14 +27,19 @@ body div#wrapper-wrapper {
       body div#wrapper-wrapper div#content-wrapper main aside {
         width: 100%; }
         body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards {
-          height: auto;
           max-height: 50vh; }
-          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.error, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success {
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview {
+            padding-top: 0; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.no-preview, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.error, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success, body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.alert {
             width: 100%;
             background: #ffffff00;
-            border: 0; }
+            border: 0;
+            height: 0; }
           body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.success {
             color: #00c400;
+            padding-top: 0; }
+          body div#wrapper-wrapper div#content-wrapper main aside div#preview-cards.alert {
+            color: #ffbb00;
             padding-top: 0; }
       body div#wrapper-wrapper div#content-wrapper main section {
         height: auto;

@@ -15,11 +15,9 @@ let APICtrl = (function() {
             name: item.food_name,
             imageUrl: item.photo.thumb
           };
-          console.log(typeof search, typeof obj.name);
           if (search === obj.name) {
             obj.match = true;
             matchedIndex = index;
-            console.log("Matched Index, Mate!", index);
           }
           return obj;
         })),
@@ -123,6 +121,7 @@ let StateCtrl = (function() {
        UI
 *****************/
 let UICtrl = (function() {
+  let height = "0px";
   // Private members
   hooks = {
     section: document.querySelector("section"),
@@ -141,6 +140,12 @@ let UICtrl = (function() {
   replacePlaceholderImage = item => {
     if (/nix-apple-grey.png$/.test(item.imageUrl)) {
       item.imageUrl = "img/burger.png";
+    }
+  };
+
+  adjustForDesktop = () => {
+    if (window.innerWidth >= 900) {
+      hooks.previewCards.style.height = "35rem";
     }
   };
   // Public members
@@ -163,21 +168,42 @@ let UICtrl = (function() {
       });
       hooks.previewCards.innerHTML = itemsHTML;
       if (itemsHTML === "") {
-        console.log("Empty Search: Applying Style");
-        hooks.previewCards.className = "preview-cards no-preview";
+        hooks.previewCards.className = "no-preview";
         hooks.previewCards.innerHTML =
           "Sorry, no matches found for the search string :(";
-        console.log(previewItems);
+        hooks.previewCards.style.height = "27px";
+        height = "27px";
       } else {
+        hooks.previewCards.style.height = 60 + 80 * previewItems.length + "px";
+        height = hooks.previewCards.style.height;
         hooks.previewCards.className = "";
-        console.log("1+ Searches: Applying Style");
         hooks.previewCards.innerHTML = "<p>Search results</p>" + itemsHTML;
+      }
+      adjustForDesktop();
+    },
+    setHeightMessage: function() {
+      hooks.previewCards.style.height = "27px";
+      height = "27px";
+      adjustForDesktop();
+    },
+    setHeightZero: function() {
+      hooks.previewCards.style.height = "0px";
+      height = "0px";
+      adjustForDesktop();
+    },
+    adjustHeight: function() {
+      if (window.innerWidth < 900) {
+        hooks.previewCards.style.height = height;
+        console.log(height);
+      } else {
+        hooks.previewCards.style.height = "35rem";
       }
     },
     clearPreview: function() {
-      hooks.previewCards.className = "preview-cards no-preview";
+      hooks.previewCards.className = "no-preview";
       hooks.previewCards.innerHTML = "";
     },
+
     clearInputs: function() {
       hooks.mealInput.value = "";
       hooks.caloriesInput.value = "";
@@ -248,6 +274,9 @@ let UICtrl = (function() {
       input.placeholder = err;
       input.className = "error";
       label.className = "error";
+      hooks.previewCards.style.height = "0px";
+      height = "0px";
+      adjustForDesktop();
     },
     clearCarlorieInput: function() {
       hooks.caloriesInput.value = "";
@@ -263,8 +292,11 @@ let UICtrl = (function() {
       hooks.previewCards.className = "preview-cards success";
       hooks.previewCards.innerHTML = msg;
     },
+    showAlert: function(msg) {
+      hooks.previewCards.className = "preview-cards alert";
+      hooks.previewCards.innerHTML = msg;
+    },
     padListHeading: function(noOfItems) {
-      console.log("No. of items: " + noOfItems);
       if (noOfItems === 0) {
         hooks.listWrapper.className = "zero-items";
       } else {
@@ -288,10 +320,18 @@ let App = (function() {
   UICtrl.padListHeading(items.length);
 
   /****************
+       Resize
+  *****************/
+  window.addEventListener("resize", e => {
+    UICtrl.adjustHeight();
+  });
+
+  /****************
       Meal input
   *****************/
   let selected = null;
   let hooks = UICtrl.getHooks();
+
   hooks.mealInput.addEventListener("keyup", e => {
     selected = null;
     let search = e.target.value;
@@ -300,6 +340,7 @@ let App = (function() {
 
     if (search === "") {
       UICtrl.clearPreview();
+      UICtrl.setHeightZero();
       return;
     }
 
@@ -310,7 +351,6 @@ let App = (function() {
           selected = document.querySelector(
             `.preview-card:nth-of-type(${res.index + 1})`
           );
-          console.log(selected);
         }
       })
       .catch(function(err) {
@@ -322,7 +362,6 @@ let App = (function() {
     Calories input
   *****************/
   hooks.caloriesInput.addEventListener("keyup", e => {
-    console.log("Calories!!");
     UICtrl.resetErrorStyle(
       "Enter Calories",
       hooks.caloriesInput,
@@ -358,12 +397,9 @@ let App = (function() {
      Submit Meal
   *****************/
   hooks.add.addEventListener("click", e => {
-    console.log("Hey");
-
     e.preventDefault();
     let meal = hooks.mealInput.value;
     let calories = hooks.caloriesInput.value;
-    console.log(calories);
 
     if (!meal) {
       UICtrl.clearPreview();
@@ -406,6 +442,7 @@ let App = (function() {
     UICtrl.clearPreview();
     UICtrl.showSuccess("You have successfully inserted a meal :)");
     UICtrl.padListHeading(items.length);
+    UICtrl.setHeightMessage();
   });
 
   /****************
@@ -422,8 +459,9 @@ let App = (function() {
       );
       StorageCtrl.set(items);
       UICtrl.removeItem(item, totalCalories);
-      UICtrl.showSuccess("You have successfully removed a meal :)");
+      UICtrl.showAlert("You have successfully removed a meal :)");
       UICtrl.padListHeading(items.length);
+      UICtrl.setHeightMessage();
     }
   });
 })();
