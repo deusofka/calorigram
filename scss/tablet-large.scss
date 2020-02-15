@@ -198,11 +198,12 @@ body {
               }
 
               div.preview-card-meal {
-                display: flex;
-                align-items: center;
-                height: 5rem;
-                overflow: scroll;
-                padding-right: 0.5rem;
+                padding-right: 0.75rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
               }
             }
           }
@@ -266,12 +267,12 @@ body {
                     margin-right: 1rem;
                   }
                   p.list-item-meal {
-                    display: flex;
-                    align-items: center;
-                    height: 5rem;
-                    overflow: scroll;
-                    padding-right: 0.5rem;
-                    padding: 1rem 0.5rem 1rem 0;
+                    padding-right: 0.75rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
                   }
                   p.list-item-calories {
                   }
