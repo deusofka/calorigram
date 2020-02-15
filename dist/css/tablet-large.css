@@ -213,7 +213,8 @@ body div#wrapper-wrapper {
                 align-items: center;
                 height: 5rem;
                 overflow: scroll;
-                padding-right: 0.5rem; }
+                padding-right: 0.5rem;
+                padding: 1rem 0.5rem 1rem 0; }
               body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-items div.list-item div.list-subitem i.fa-minus-circle {
                 margin: 0 1rem; }
     body div#wrapper-wrapper div#content-wrapper footer p {
