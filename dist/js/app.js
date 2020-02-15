@@ -238,6 +238,9 @@ let UICtrl = (function() {
       hooks.listItems.innerHTML = itemsHTML;
     },
     addItem: function(totalCalories, serial, imageUrl, name, calories) {
+      if (imageUrl === "img/burger-white.png") {
+        imageUrl = "img/burger.png";
+      }
       let itemsHTML = `
       <div class="list-item">
           <div class="list-subitem">
