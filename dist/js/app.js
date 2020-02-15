@@ -390,16 +390,15 @@ let App = (function() {
           ? ele.parentElement
           : ele;
       // Reset previously selected card
-      let isBurger = false;
       if (selected) {
-        isBurger = UICtrl.getBgImage(selected) === "img/burger-white.png";
         selected.className = "preview-card";
-        if (isBurger) {
+        if (UICtrl.getBgImage(selected) === "img/burger-white.png") {
           selected.firstElementChild.style.backgroundImage =
             "url('img/burger.png')";
         }
       }
-      if (isBurger || selected === null) {
+
+      if (UICtrl.getBgImage(ele) === "img/burger.png") {
         ele.firstElementChild.style.backgroundImage =
           "url('img/burger-white.png')";
       }
