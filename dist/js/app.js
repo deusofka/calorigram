@@ -137,9 +137,9 @@ let UICtrl = (function() {
     listWrapper: document.querySelector("#list-wrapper")
   };
   // Use the hamburger as placeholder image
-  replacePlaceholderImage = item => {
+  replacePlaceholderImage = (item, isSelected) => {
     if (/nix-apple-grey.png$/.test(item.imageUrl)) {
-      item.imageUrl = "img/burger.png";
+      item.imageUrl = isSelected ? "img/burger-white.png" : "img/burger.png";
     }
   };
 
@@ -150,10 +150,16 @@ let UICtrl = (function() {
   };
   // Public members
   return {
+    getBgImage: function(ele) {
+      return ele.firstElementChild.style.backgroundImage
+        .match(/".*"/)[0]
+        .replace(/"/g, "");
+    },
+
     paintPreview: function(previewItems) {
       let itemsHTML = "";
       previewItems.forEach(function(item) {
-        replacePlaceholderImage(item);
+        replacePlaceholderImage(item, item.match);
         let selectedClass = item.match ? " selected" : "";
         // if (item.name.length > 15) {
         //   console.log(`Before: ${item.name}, length: ${item.name.length}`);
@@ -213,7 +219,7 @@ let UICtrl = (function() {
       // List items
       let itemsHTML = "";
       state.items.forEach(function(item, index) {
-        replacePlaceholderImage(item);
+        replacePlaceholderImage(item, false);
         itemsHTML += `
         <div class="list-item">
             <div class="list-subitem">
@@ -368,7 +374,7 @@ let App = (function() {
   });
 
   /****************
-      Previews
+    Select Preview
   *****************/
   hooks.previewCards.addEventListener("click", e => {
     let ele = e.target;
@@ -380,12 +386,23 @@ let App = (function() {
           ? ele.parentElement
           : ele;
       // Reset previously selected card
+      let isBurger = false;
       if (selected) {
+        isBurger = UICtrl.getBgImage(selected) === "img/burger-white.png";
         selected.className = "preview-card";
+        if (isBurger) {
+          selected.firstElementChild.style.backgroundImage =
+            "url('img/burger.png')";
+        }
+      }
+      if (isBurger || selected === null) {
+        ele.firstElementChild.style.backgroundImage =
+          "url('img/burger-white.png')";
       }
       // Assign currently selected card
       selected = ele;
       ele.className += " selected";
+
       // Set meal input
       hooks.mealInput.value = ele.lastElementChild.innerHTML;
     }
@@ -425,9 +442,7 @@ let App = (function() {
     }
     let imageUrl;
     if (selected) {
-      imageUrl = selected.firstElementChild.style.backgroundImage
-        .match(/".*"/)[0]
-        .replace(/"/g, "");
+      imageUrl = UICtrl.getBgImage(selected);
     } else {
       imageUrl = "img/burger.png";
     }
