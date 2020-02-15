@@ -216,6 +216,8 @@ body div#wrapper-wrapper {
                   width: 4rem;
                   height: 4rem;
                   margin-right: 1rem; }
+                body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-items div.list-item div.list-subitem p.list-item-meal {
+                  padding-right: 1rem; }
                 body div#wrapper-wrapper div#content-wrapper main section div#list-wrapper div#list-items div.list-item div.list-subitem i.fa-minus-circle {
                   margin: 0 1rem; }
     body div#wrapper-wrapper div#content-wrapper footer {
