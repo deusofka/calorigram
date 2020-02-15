@@ -382,7 +382,8 @@ let App = (function() {
     if (ele.id != "preview-cards") {
       // If card child, manually bubble up to the parent
       ele =
-        ele.parentElement.className === "preview-card"
+        ele.parentElement.className === "preview-card" ||
+        ele.parentElement.className === "preview-card selected"
           ? ele.parentElement
           : ele;
       // Reset previously selected card
