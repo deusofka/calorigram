@@ -56,7 +56,7 @@ let StorageCtrl = (function() {
     get: function() {
       let items = localStorage.getItem("foodItems");
       if (!items) {
-        items = "[]";
+        items = `[{"name":"apple","calories":"100","imageUrl":"https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg"},{"name":"fruit","calories":"50","imageUrl":"https://nix-tag-images.s3.amazonaws.com/1773_thumb.jpg"},{"name":"kiwi","calories":"60","imageUrl":"https://nix-tag-images.s3.amazonaws.com/647_thumb.jpg"}]`;
       }
       return JSON.parse(items);
     },
